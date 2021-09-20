@@ -16,9 +16,9 @@ INSERT INTO TRAILER VALUES ( 4, 'Trailer4' , 1);
 --- Create a PL/SQL procedure
 
 CREATE OR REPLACE PROCEDURE select_trailer_org 
-				                                       (p_trailer_id IN NUMBER, 
+				                     (p_trailer_id IN NUMBER, 
 	                                                  p_org_id IN NUMBER,
-				                                              result OUT SYS_REFCURSOR)
+				                            result OUT SYS_REFCURSOR)
 AS
 BEGIN
 
@@ -48,22 +48,5 @@ INSERT INTO trucks VALUES ( 2, 'Truck2' , 1, 0, 1);
 INSERT INTO trucks VALUES ( 3, 'Truck3' , 1, 1, 0);
 INSERT INTO trucks VALUES ( 4, 'Truck4' , 1, 0, 0);
 
-
---- Create a PL/SQL procedure
-
-CREATE OR REPLACE PROCEDURE select_trucks_org 
-				                     (P_TRUCK_ID IN NUMBER, 
-	                                                P_ORG_ID IN NUMBER,
-				                        result OUT SYS_REFCURSOR)
-AS
-BEGIN
-
-open result for
-select t.TRUCK_ID, t.IS_ACTIVE
-  from trucks t
- where t.ORG_ID = P_ORG_ID and 
-     t.TRUCK_ID = P_TRUCK_ID;
-
-END;
 
 
