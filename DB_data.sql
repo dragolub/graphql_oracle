@@ -26,6 +26,44 @@ open result for
 select t.trailer_id, t.is_active
   from trailer t
  where t.org_id = p_org_id and 
-	     t.trailer_id=p_trailer_id;
+    t.trailer_id = p_trailer_id;
 
 END;
+
+
+
+-- Create table
+create table trucks
+(
+  TRUCK_ID        NUMBER(10) not null,
+  TRUCK_LICENSE   VARCHAR2(255 CHAR) not null,
+  ORG_ID          NUMBER(5),
+  IS_ACTIVE	  NUMBER(1),	
+  IS_AUTONOMOUS   NUMBER(1)
+)
+
+--- Insert Data
+INSERT INTO trucks VALUES ( 1, 'Truck1' , 1, 1, 1);
+INSERT INTO trucks VALUES ( 2, 'Truck2' , 1, 0, 1);
+INSERT INTO trucks VALUES ( 3, 'Truck3' , 1, 1, 0);
+INSERT INTO trucks VALUES ( 4, 'Truck4' , 1, 0, 0);
+
+
+--- Create a PL/SQL procedure
+
+CREATE OR REPLACE PROCEDURE select_trucks_org 
+				                     (P_TRUCK_ID IN NUMBER, 
+	                                                P_ORG_ID IN NUMBER,
+				                        result OUT SYS_REFCURSOR)
+AS
+BEGIN
+
+open result for
+select t.TRUCK_ID, t.IS_ACTIVE
+  from trucks t
+ where t.ORG_ID = P_ORG_ID and 
+     t.TRUCK_ID = P_TRUCK_ID;
+
+END;
+
+
