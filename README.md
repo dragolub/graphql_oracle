@@ -11,6 +11,9 @@ For more details node-oracledb version 5.2
 http://oracle.github.io/node-oracledb/
 
 
+npm start
+
+
 
 
 
