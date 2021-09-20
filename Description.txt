@@ -3,5 +3,5 @@
 3. Create tables, Insert data and create procedure select_trailer_org - https://github.com/dragolub/graphql_oracle/blob/main/DB_data.sql
 
 4. You have to use this stored procedure(oracle) select_trailer_org and sys_refcursor (result) return in GraphQL. - https://github.com/dragolub/graphql_oracle/blob/main/schema/schemaDatamart.js
-5. In this project has example with select query - https://github.com/dragolub/graphql_oracle/blob/main/schema/schemaDatamart.js
+5. In this project has an example with select query - https://github.com/dragolub/graphql_oracle/blob/main/schema/schemaDatamart.js
 
