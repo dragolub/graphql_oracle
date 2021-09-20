@@ -48,60 +48,6 @@ function simpleExecute(statement, binds = [], opts = {}) {
 
 module.exports.simpleExecute = simpleExecute;
 
-// function refCursorExecute (statement, binds = []) {
-//   return new Promise(async (resolve, reject) => {
-//     let conn;
-
-//     opts.outFormat = oracledb.OBJECT;
-//     opts.autoCommit = true;
-
-//   try {
-//     connection = await oracledb.getConnection();
-
-//     const result = await connection.execute(statement, binds);
-//     /* const result = await connection.execute(
-//       `BEGIN 
-//             AIT_OPERATION_PKG.select_truck_org (:p_truck_id, :p_org_id, :info); 
-//        END;`,
-//       {
-//         P_TRUCK_ID: { type: oracledb.STRING, dir: OracleDB.BIND_IN},
-//           P_ORG_ID: { type: oracledb.STRING, dir: OracleDB.BIND_IN },
-//               info: { type: oracledb.CURSOR, dir: oracledb.BIND_OUT}
-//       }
-//     ); */
-
-//     const cursor = result.outBinds.cursor;
-//     const queryStream = cursor.toQueryStream();
-
-//     const consumeStream = new Promise((resolve, reject) => {
-//       queryStream.on('data', function(row) {
-//         console.log(row);
-//       });
-//       queryStream.on('error', reject);
-//       queryStream.on('end', function() {
-//         queryStream.destroy(); // free up resources
-//       });
-//       queryStream.on('close', resolve);
-//     });
-
-//     await consumeStream;
-
-//   } catch (err) {
-//     console.error(err);
-//   } finally {
-//     if (connection) {
-//       try {
-//         await connection.close();
-//       } catch (err) {
-//         console.error(err);
-//       }
-//     }
-//   }
-// }
-
-//module.exports.refCursorExecute = refCursorExecute;
- 
-
 async function startup() {
 
   try {
