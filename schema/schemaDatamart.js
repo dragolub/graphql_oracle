@@ -35,7 +35,7 @@ const RootQuery = new GraphQLObjectType({
             type: TrucksType,
             args: {P_TRUCK_ID: {type: GraphQLInt}},    
             async resolve(parent,args){
-                let sql= `select * from ait_trucks where truck_id= :P_TRUCK_ID `;
+                let sql= `select * from trucks where truck_id= :P_TRUCK_ID `;
                 let binds = [args.P_TRUCK_ID];
                 const result = await database.simpleExecute(sql,binds);
               //  console.log(result.metaData);
@@ -45,7 +45,7 @@ const RootQuery = new GraphQLObjectType({
         TRUCKS_ALL: {
             type: new GraphQLList(TrucksType),
             async resolve(){
-                let sql= `select * from ait_trucks order by truck_id desc`;
+                let sql= `select * from trucks order by truck_id desc`;
                 const result = await database.simpleExecute(sql);
                 console.log(result.metaData);               
              return result.rows;
