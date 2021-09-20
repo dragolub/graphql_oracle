@@ -1,16 +1,16 @@
--- Create table
-create table TRAILER
+/*-- Create table
+create table ait_TRAILER
 (
   trailer_id      NUMBER(10) not null,
   trailer_license VARCHAR2(255 CHAR) not null,
   org_id          NUMBER(5)
 )
 
---- Insert Data
-INSERT INTO TRAILER VALUES ( 1, 'Trailer1' , 1);
-INSERT INTO TRAILER VALUES ( 2, 'Trailer2' , 1);
-INSERT INTO TRAILER VALUES ( 3, 'Trailer3' , 1);
-INSERT INTO TRAILER VALUES ( 4, 'Trailer4' , 1);
+--- Insert Data 
+INSERT INTO ait_TRAILER VALUES ( 1, 'Trailer1' , 1);
+INSERT INTO ait_TRAILER VALUES ( 2, 'Trailer2' , 1);
+INSERT INTO ait_TRAILER VALUES ( 3, 'Trailer3' , 1);
+INSERT INTO ait_TRAILER VALUES ( 4, 'Trailer4' , 1);
 
 
 --- Create a PL/SQL procedure
@@ -24,7 +24,7 @@ BEGIN
 
 open result for
 select t.trailer_id, t.is_active
-  from trailer t
+  from ait_TRAILER t
  where t.org_id = p_org_id and 
     t.trailer_id = p_trailer_id;
 
@@ -43,10 +43,11 @@ create table trucks
 )
 
 --- Insert Data
-INSERT INTO trucks VALUES ( 1, 'Truck1' , 1, 1, 1);
-INSERT INTO trucks VALUES ( 2, 'Truck2' , 1, 0, 1);
-INSERT INTO trucks VALUES ( 3, 'Truck3' , 1, 1, 0);
-INSERT INTO trucks VALUES ( 4, 'Truck4' , 1, 0, 0);
+INSERT INTO ait_trucks VALUES ( 1, 'Truck1' , 1, 1, 1);
+INSERT INTO ait_trucks VALUES ( 2, 'Truck2' , 1, 0, 1);
+INSERT INTO ait_trucks VALUES ( 3, 'Truck3' , 1, 1, 0);
+INSERT INTO ait_trucks VALUES ( 4, 'Truck4' , 1, 0, 0);
 
 
 
+*/
